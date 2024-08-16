@@ -1,36 +1,60 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<h1>Gen-Content 🤖</h1>
 
-## Getting Started
+<h2>It is an AI-powered content generator designed to help users create high-quality text content effortlessly. This application leverages modern technologies to provide a seamless user experience.</h2>
 
-First, run the development server:
+<ul>
+  <li>React.js ⚛️</li>
+  <li>TypeScript ✍️</li>
+  <li>Tailwind CSS 🎨</li>
+  <li>PostgreSQL 🐘</li>
+  <li>Drizzle ORM 💧</li>
+  <li>Gemini API 🧠</li>
+</ul>
 
-```bash
-npm run dev
+<h3>Getting Started 🚀</h3>
+
+<p>First, run the development server:</p>
+
+<pre><code>npm run dev
 # or
 yarn dev
 # or
 pnpm dev
 # or
 bun dev
-```
+</code></pre>
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+<h3>Install Dependencies</h3>
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+<pre><code>cd gen-content
+npm install
+</code></pre>
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+<h3>API Key Configuration 🔑 </h3>
 
-## Learn More
+<p>To use the Gemini API, you need to obtain an API key. Follow these steps:</p>
+<ol>
+  <li>Sign up at the Gemini API provider's website.</li>
+  <li>Generate your API key from the dashboard.</li>
+  <li>Add your API key to the environment variables in your project.</li>
+</ol>
 
-To learn more about Next.js, take a look at the following resources:
+<p>For example, you can create a `.env` file in the root of your project and add:</p>
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+<pre><code>GEMINI_API_KEY=your_api_key_here
+</code></pre>
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+<h3>Start the Development Server</h3>
 
-## Deploy on Vercel
+<pre><code>npm run dev
+</code></pre>
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+<p>Open <a href="http://localhost:3000">http://localhost:3000</a> with your browser to see the result.</p>
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+<h3>Database Management 🔑</h3>
+
+<p>For managing your PostgreSQL database, you can use <a href="https://drizzle.studio/">Drizzle Studio</a>. It provides a modern interface for exploring and managing your database.</p>
+
+<h3>Deployment 🌎</h3>
+
+<p>Vercel: Deploy your Next.js application to Vercel for easy hosting and automatic deployments.</p>
