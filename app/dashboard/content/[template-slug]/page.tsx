@@ -1,4 +1,4 @@
-"use client";
+"use client"
 import React, { useState } from 'react';
 import FormSection from './_components/FormSection';
 import OutputSection from './_components/OutputSection';
@@ -25,18 +25,18 @@ function CreateNewContent(props: PROPS) {
     const [aiOutput, setAiOutput] = useState<string>('');
     const { user } = useUser();
 
-    const GenerateAIContent = async (formData: Record<string, any>) => {
+    const GenerateAIContent = async (FormData: any) => {
         setLoading(true);
         try {
-            const selectedPrompt = selectedTemplate?.aiPrompt;
-            const finalAIPrompt = JSON.stringify(formData) + ", " + selectedPrompt;
+            const SelectedPrompt = selectedTemplate?.aiPrompt;
+            const FinalAIPrompt = JSON.stringify(FormData) + ", " + SelectedPrompt;
 
-            const result = await chatSession.sendMessage(finalAIPrompt);
+            const result = await chatSession.sendMessage(FinalAIPrompt);
             const aiResponse = await result?.response.text();
 
-            setAiOutput(aiResponse || ''); // Ensure aiOutput is a string
+            setAiOutput(aiResponse);
 
-            await SaveInDb(formData, selectedTemplate?.slug, aiResponse || ''); // Handle potential null aiResponse
+            await SaveInDb(FormData, selectedTemplate?.slug, aiResponse);
         } catch (error) {
             console.error("Error generating AI content: ", error);
         } finally {
@@ -44,13 +44,13 @@ function CreateNewContent(props: PROPS) {
         }
     };
 
-    const SaveInDb = async (formData: Record<string, any>, slug: string | undefined, aiResp: string) => {
+    const SaveInDb = async (formData: any, slug: any, aiResp: string) => {
         try {
             const result = await db.insert(AIOutput).values({
-                formData: JSON.stringify(formData), // Ensure formData is a string
-                templatesSlug: slug || '', // Default to an empty string if slug is undefined
+                formData: formData,
+                templatesSlug: slug,
                 aiResponse: aiResp,
-                createdBy: user?.primaryEmailAddress?.emailAddress || '', // Default to an empty string if null
+                createdBy: user?.primaryEmailAddress?.emailAddress || null, // Handle potential null value
                 createdAt: moment().format('DD/MM/yyyy'),
             });
             console.log("Database Insertion Result: ", result);
@@ -68,7 +68,7 @@ function CreateNewContent(props: PROPS) {
                 {/* Form Section */}
                 <FormSection
                     selectedTemplate={selectedTemplate}
-                    userFormInput={(s: Record<string, any>) => GenerateAIContent(s)} // Type the input parameter
+                    userFormInput={(s: any) => GenerateAIContent(s)}
                     loading={loading}
                 />
                 <div className='col-span-2'>
