@@ -46,11 +46,14 @@ function CreateNewContent(props: PROPS) {
 
     const SaveInDb = async (formData: any, slug: any, aiResp: string) => {
         try {
+            // Use an empty string or some default value instead of null
+            const createdBy = user?.primaryEmailAddress?.emailAddress || "unknown@domain.com";
+
             const result = await db.insert(AIOutput).values({
                 formData: formData,
                 templatesSlug: slug,
                 aiResponse: aiResp,
-                createdBy: user?.primaryEmailAddress?.emailAddress || null, // Handle potential null value
+                createdBy: createdBy,
                 createdAt: moment().format('DD/MM/yyyy'),
             });
             console.log("Database Insertion Result: ", result);
