@@ -59,4 +59,4 @@ npm install
 
 <p>Vercel: Deploy your Next.js application to Vercel for easy hosting and automatic deployments.</p>
 
-Live Demo:[Gen-Content](https://ai-content-generator-omega-orcin.vercel.app/)
+## Live Demo:[Gen-Content](https://ai-content-generator-omega-orcin.vercel.app/) 🎉
